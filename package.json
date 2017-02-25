@@ -1,0 +1,74 @@
+{
+    "author": "thomasfiveash",
+    "dependencies": {},
+    "keywords": [],
+    "name": "warmup-sets-v2",
+    "pebble": {
+        "capabilities": [
+            "configurable"
+        ],
+        "displayName": "Warmup Sets v2",
+        "enableMultiJS": false,
+        "messageKeys": [],
+        "projectType": "native",
+        "resources": {
+            "media": [
+                {
+                    "file": "images/25_minus",
+                    "name": "25_minus",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/25_plus",
+                    "name": "25_plus",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/5_minus",
+                    "name": "5_minus",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/5_plus",
+                    "name": "5_plus",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/check_mark",
+                    "name": "check_mark",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/minus",
+                    "name": "minus",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/plus",
+                    "name": "plus",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                }
+            ]
+        },
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "aplite",
+            "basalt",
+            "chalk",
+            "diorite",
+            "emery"
+        ],
+        "uuid": "7d96d084-33fb-4fec-8edf-7f4013e459ab",
+        "watchapp": {
+            "watchface": false
+        }
+    },
+    "version": "1.0.0"
+}
