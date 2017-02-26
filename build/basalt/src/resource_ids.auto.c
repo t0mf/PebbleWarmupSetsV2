@@ -6,15 +6,15 @@
 //
 
 uint32_t RESOURCE_ID_reset = 1;
-uint32_t RESOURCE_ID_pause = 2;
-uint32_t RESOURCE_ID_play = 3;
-uint32_t RESOURCE_ID_play_reset = 4;
-uint32_t RESOURCE_ID_15_minus = 5;
-uint32_t RESOURCE_ID_15_plus = 6;
-uint32_t RESOURCE_ID_25_minus = 7;
-uint32_t RESOURCE_ID_25_plus = 8;
+uint32_t RESOURCE_ID_plus = 2;
+uint32_t RESOURCE_ID_play_reset = 3;
+uint32_t RESOURCE_ID_play = 4;
+uint32_t RESOURCE_ID_pause = 5;
+uint32_t RESOURCE_ID_minus = 6;
+uint32_t RESOURCE_ID_check_mark = 7;
+uint32_t RESOURCE_ID_5_plus = 8;
 uint32_t RESOURCE_ID_5_minus = 9;
-uint32_t RESOURCE_ID_5_plus = 10;
-uint32_t RESOURCE_ID_check_mark = 11;
-uint32_t RESOURCE_ID_minus = 12;
-uint32_t RESOURCE_ID_plus = 13;
+uint32_t RESOURCE_ID_25_plus = 10;
+uint32_t RESOURCE_ID_25_minus = 11;
+uint32_t RESOURCE_ID_15_plus = 12;
+uint32_t RESOURCE_ID_15_minus = 13;

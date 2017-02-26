@@ -38,8 +38,8 @@ function loadOptions() {
     $unit[localStorage.unitSystem].className = "tab-button active";
     $unit[1-localStorage.unitSystem].className = "tab-button";
     $barbellWeight[0].value = localStorage.barWeight;
-    $weight100lbs[0].value = localStorage.w100p
-    $weight55lbs[0].value = localStorage.w55p
+    $weight100lbs[0].value = localStorage.w100p;
+    $weight55lbs[0].value = localStorage.w55p;
     $weight45lbs[0].value = localStorage.w45p;
     $weight35lbs[0].value = localStorage.w35p;
     $weight25lbs[0].value = localStorage.w25p;
@@ -103,11 +103,11 @@ function getAndStoreConfigData() {
   localStorage.barWeight = options.barWeight;
   localStorage.w100p = options.w100p;
   localStorage.w55p = options.w55p;
-  localStorage.w45p; = options.w45p;
-  localStorage.w35p; = options.w35p;
-  localStorage.w25p; = options.w25p;
-  localStorage.w10p; = options.w10p;
-  localStorage.w5p; = options.w5p;
+  localStorage.w45p = options.w45p;
+  localStorage.w35p = options.w35p;
+  localStorage.w25p = options.w25p;
+  localStorage.w10p = options.w10p;
+  localStorage.w5p = options.w5p;
   localStorage.w2point5p = options.w2point5p;
   localStorage.w50k = options.w50k;
   localStorage.w25k = options.w25k;
@@ -127,7 +127,7 @@ function getUnitSystem() {
   for (var t = 0; t < tabs.length; t++) {
     var tbclasses = tabs[t].className.split(" ");
     for ( var i = 0; i < tbclasses.length; i++) {
-      if (tbclasses[i] === "active") { 
+      if (tbclasses[i] === "active") {
         return t;
       }
     }

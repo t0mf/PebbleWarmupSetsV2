@@ -8,15 +8,15 @@
 #define  DEFAULT_MENU_ICON  0
 
 #define  RESOURCE_ID_reset  1
-#define  RESOURCE_ID_pause  2
-#define  RESOURCE_ID_play  3
-#define  RESOURCE_ID_play_reset  4
-#define  RESOURCE_ID_15_minus  5
-#define  RESOURCE_ID_15_plus  6
-#define  RESOURCE_ID_25_minus  7
-#define  RESOURCE_ID_25_plus  8
+#define  RESOURCE_ID_plus  2
+#define  RESOURCE_ID_play_reset  3
+#define  RESOURCE_ID_play  4
+#define  RESOURCE_ID_pause  5
+#define  RESOURCE_ID_minus  6
+#define  RESOURCE_ID_check_mark  7
+#define  RESOURCE_ID_5_plus  8
 #define  RESOURCE_ID_5_minus  9
-#define  RESOURCE_ID_5_plus  10
-#define  RESOURCE_ID_check_mark  11
-#define  RESOURCE_ID_minus  12
-#define  RESOURCE_ID_plus  13
+#define  RESOURCE_ID_25_plus  10
+#define  RESOURCE_ID_25_minus  11
+#define  RESOURCE_ID_15_plus  12
+#define  RESOURCE_ID_15_minus  13

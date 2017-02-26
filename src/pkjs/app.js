@@ -19,22 +19,22 @@ Pebble.addEventListener('webviewclosed', function(e) {
     Pebble.sendAppMessage({
       unitSystem: configData.unitSystem,
       barWeight: configData.barWeight,
-      weight100lbs: configData.w100p,
-      weight55lbs: configData.w55p,
-      weight45lbs: configData.w45p,
-      weight35lbs: configData.w35p,
-      weight25lbs: configData.w25p,
-      weight10lbs: configData.w10p,
-      weight5lbs: configData.w5p,
-      weight2point5lbs: configData.w2point5p,
-      weight50kgs: configData.w50k,
-      weight25kgs: configData.w25k,
-      weight20kgs: configData.w20k,
-      weight15kgs: configData.w15k,
-      weight10kgs: configData.w10k,
-      weight5kgs: configData.w5k,
-      weight2point5kgs: configData.w2point5k,
-      weight1point25kgs: configData.w1point25k
+      w100p: configData.w100p,
+      w55p: configData.w55p,
+      w45p: configData.w45p,
+      w35p: configData.w35p,
+      w25p: configData.w25p,
+      w10p: configData.w10p,
+      w5p: configData.w5p,
+      w2point5p: configData.w2point5p,
+      w50k: configData.w50k,
+      w25k: configData.w25k,
+      w20k: configData.w20k,
+      w15k: configData.w15k,
+      w10k: configData.w10k,
+      w5k: configData.w5k,
+      w2point5k: configData.w2point5k,
+      w1point25k: configData.w1point25k
     }, function() {
       console.log('Send successful!');
     }, function() {

@@ -73,7 +73,7 @@ Discarded input sections
                 0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.29.o
  .data.RESOURCE_ID_15_minus
                 0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.29.o
- .data.RESOURCE_ID_5_plus
+ .data.RESOURCE_ID_25_minus
                 0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.29.o
  .data.RESOURCE_ID_25_plus
                 0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.29.o
@@ -85,16 +85,54 @@ Discarded input sections
                 0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.29.o
  .data.RESOURCE_ID_check_mark
                 0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.29.o
- .data.RESOURCE_ID_25_minus
+ .data.RESOURCE_ID_pause
                 0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.29.o
  .data.RESOURCE_ID_reset
                 0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.29.o
  .data.RESOURCE_ID_play_reset
                 0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.29.o
- .data.RESOURCE_ID_pause
+ .data.RESOURCE_ID_5_plus
                 0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.29.o
  .data.RESOURCE_ID_15_plus
                 0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.29.o
+ .text          0x0000000000000000        0x0 src/message_keys.auto.c.29.o
+ .bss           0x0000000000000000        0x0 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_w100p
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_w25k
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_w45p
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_unitSystem
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_w5k
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_w35p
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_barWeight
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_w5p
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_w25p
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_w15k
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_w2point5k
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_w20k
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_w2point5p
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_w10k
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_w1point25k
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_w10p
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_w55p
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
+ .data.MESSAGE_KEY_w50k
+                0x0000000000000000        0x4 src/message_keys.auto.c.29.o
  .bss           0x0000000000000000        0x0 /Users/thomasfiveash/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp54NhKcpebble.o)
  .text.accel_data_service_subscribe__deprecated
                 0x0000000000000000        0xc /Users/thomasfiveash/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp54NhKcpebble.o)
@@ -1221,6 +1259,7 @@ LOAD src/c/sets.c.29.o
 LOAD src/c/timer.c.29.o
 LOAD aplite/appinfo.auto.c.29.o
 LOAD aplite/src/resource_ids.auto.c.29.o
+LOAD src/message_keys.auto.c.29.o
 LOAD /Users/thomasfiveash/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a
 START GROUP
 LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a
@@ -1581,6 +1620,7 @@ LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none
  .data          0x0000000000002ddc        0x8 src/c/timer.c.29.o
  .data          0x0000000000002de4        0x0 aplite/appinfo.auto.c.29.o
  .data          0x0000000000002de4        0x0 aplite/src/resource_ids.auto.c.29.o
+ .data          0x0000000000002de4        0x0 src/message_keys.auto.c.29.o
  .data          0x0000000000002de4        0x0 /Users/thomasfiveash/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp54NhKcpebble.o)
  .data          0x0000000000002de4        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
  .data          0x0000000000002de4        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
@@ -1657,16 +1697,16 @@ LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none
                 0x00000000000032f8        0x4 src/c/num_sets.c.29.o
  .bss.head      0x00000000000032fc        0x4 src/c/sets.c.29.o
                 0x00000000000032fc                head
- .bss.s_buff5.7904
+ .bss.s_buff5.7922
                 0x0000000000003300       0x14 src/c/sets.c.29.o
- .bss.s_buff4.7903
-                0x0000000000003314       0x14 src/c/sets.c.29.o
- .bss.s_buff4.7971
-                0x0000000000003328       0x10 src/c/sets.c.29.o
  .bss.s_time_layer
-                0x0000000000003338        0x4 src/c/sets.c.29.o
+                0x0000000000003314        0x4 src/c/sets.c.29.o
  .bss.s_list_message_layer2
-                0x000000000000333c        0x4 src/c/sets.c.29.o
+                0x0000000000003318        0x4 src/c/sets.c.29.o
+ .bss.s_buff4.7921
+                0x000000000000331c       0x14 src/c/sets.c.29.o
+ .bss.s_buff4.7989
+                0x0000000000003330       0x10 src/c/sets.c.29.o
  .bss.s_menu_layer
                 0x0000000000003340        0x4 src/c/sets.c.29.o
  .bss.plate_numbers_copied
@@ -1758,19 +1798,21 @@ OUTPUT(/Users/thomasfiveash/Desktop/PebbleWarmupSetsV2/build/aplite/pebble-app.e
  .ARM.attributes
                 0x00000000000001a7       0x33 aplite/src/resource_ids.auto.c.29.o
  .ARM.attributes
-                0x00000000000001da       0x21 /Users/thomasfiveash/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp54NhKcpebble.o)
+                0x00000000000001da       0x33 src/message_keys.auto.c.29.o
  .ARM.attributes
-                0x00000000000001fb       0x19 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
+                0x000000000000020d       0x21 /Users/thomasfiveash/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp54NhKcpebble.o)
  .ARM.attributes
-                0x0000000000000214       0x19 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
+                0x000000000000022e       0x19 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
  .ARM.attributes
-                0x000000000000022d       0x19 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
+                0x0000000000000247       0x19 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
  .ARM.attributes
-                0x0000000000000246       0x19 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
+                0x0000000000000260       0x19 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
  .ARM.attributes
-                0x000000000000025f       0x29 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+                0x0000000000000279       0x19 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
  .ARM.attributes
-                0x0000000000000288       0x19 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+                0x0000000000000292       0x29 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .ARM.attributes
+                0x00000000000002bb       0x19 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
 
 .comment        0x0000000000000000       0x4e
  .comment       0x0000000000000000       0x4e /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
@@ -1783,9 +1825,10 @@ OUTPUT(/Users/thomasfiveash/Desktop/PebbleWarmupSetsV2/build/aplite/pebble-app.e
  .comment       0x0000000000000000       0x4f src/c/timer.c.29.o
  .comment       0x0000000000000000       0x4f aplite/appinfo.auto.c.29.o
  .comment       0x0000000000000000       0x4f aplite/src/resource_ids.auto.c.29.o
+ .comment       0x0000000000000000       0x4f src/message_keys.auto.c.29.o
  .comment       0x0000000000000000       0x4f /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
 
-.debug_info     0x0000000000000000     0x561c
+.debug_info     0x0000000000000000     0x57cf
  .debug_info    0x0000000000000000      0x171 src/c/ftoa.c.29.o
  .debug_info    0x0000000000000171     0x10fa src/c/main.c.29.o
  .debug_info    0x000000000000126b      0x515 src/c/mini-printf.c.29.o
@@ -1794,12 +1837,13 @@ OUTPUT(/Users/thomasfiveash/Desktop/PebbleWarmupSetsV2/build/aplite/pebble-app.e
  .debug_info    0x0000000000003cd4     0x1225 src/c/timer.c.29.o
  .debug_info    0x0000000000004ef9      0x2e6 aplite/appinfo.auto.c.29.o
  .debug_info    0x00000000000051df      0x159 aplite/src/resource_ids.auto.c.29.o
- .debug_info    0x0000000000005338       0xb9 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
- .debug_info    0x00000000000053f1       0xb9 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
- .debug_info    0x00000000000054aa       0xb9 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
- .debug_info    0x0000000000005563       0xb9 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .debug_info    0x0000000000005338      0x1b3 src/message_keys.auto.c.29.o
+ .debug_info    0x00000000000054eb       0xb9 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .debug_info    0x00000000000055a4       0xb9 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .debug_info    0x000000000000565d       0xb9 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
+ .debug_info    0x0000000000005716       0xb9 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
 
-.debug_abbrev   0x0000000000000000     0x112e
+.debug_abbrev   0x0000000000000000     0x1172
  .debug_abbrev  0x0000000000000000       0xf3 src/c/ftoa.c.29.o
  .debug_abbrev  0x00000000000000f3      0x30d src/c/main.c.29.o
  .debug_abbrev  0x0000000000000400      0x234 src/c/mini-printf.c.29.o
@@ -1808,10 +1852,11 @@ OUTPUT(/Users/thomasfiveash/Desktop/PebbleWarmupSetsV2/build/aplite/pebble-app.e
  .debug_abbrev  0x0000000000000d20      0x2f2 src/c/timer.c.29.o
  .debug_abbrev  0x0000000000001012       0x88 aplite/appinfo.auto.c.29.o
  .debug_abbrev  0x000000000000109a       0x44 aplite/src/resource_ids.auto.c.29.o
- .debug_abbrev  0x00000000000010de       0x14 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
- .debug_abbrev  0x00000000000010f2       0x14 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
- .debug_abbrev  0x0000000000001106       0x14 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
- .debug_abbrev  0x000000000000111a       0x14 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .debug_abbrev  0x00000000000010de       0x44 src/message_keys.auto.c.29.o
+ .debug_abbrev  0x0000000000001122       0x14 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .debug_abbrev  0x0000000000001136       0x14 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .debug_abbrev  0x000000000000114a       0x14 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
+ .debug_abbrev  0x000000000000115e       0x14 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
 
 .debug_loc      0x0000000000000000     0x1970
  .debug_loc     0x0000000000000000       0xe8 src/c/ftoa.c.29.o
@@ -1821,7 +1866,7 @@ OUTPUT(/Users/thomasfiveash/Desktop/PebbleWarmupSetsV2/build/aplite/pebble-app.e
  .debug_loc     0x0000000000000d73      0x7bf src/c/sets.c.29.o
  .debug_loc     0x0000000000001532      0x43e src/c/timer.c.29.o
 
-.debug_aranges  0x0000000000000000      0x2f0
+.debug_aranges  0x0000000000000000      0x308
  .debug_aranges
                 0x0000000000000000       0x20 src/c/ftoa.c.29.o
  .debug_aranges
@@ -1839,13 +1884,15 @@ OUTPUT(/Users/thomasfiveash/Desktop/PebbleWarmupSetsV2/build/aplite/pebble-app.e
  .debug_aranges
                 0x0000000000000258       0x18 aplite/src/resource_ids.auto.c.29.o
  .debug_aranges
-                0x0000000000000270       0x20 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
+                0x0000000000000270       0x18 src/message_keys.auto.c.29.o
  .debug_aranges
-                0x0000000000000290       0x20 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
+                0x0000000000000288       0x20 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
  .debug_aranges
-                0x00000000000002b0       0x20 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
+                0x00000000000002a8       0x20 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
  .debug_aranges
-                0x00000000000002d0       0x20 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
+                0x00000000000002c8       0x20 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
+ .debug_aranges
+                0x00000000000002e8       0x20 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
 
 .debug_ranges   0x0000000000000000      0x380
  .debug_ranges  0x0000000000000000       0x10 src/c/ftoa.c.29.o
@@ -1855,21 +1902,22 @@ OUTPUT(/Users/thomasfiveash/Desktop/PebbleWarmupSetsV2/build/aplite/pebble-app.e
  .debug_ranges  0x0000000000000188      0x158 src/c/sets.c.29.o
  .debug_ranges  0x00000000000002e0       0xa0 src/c/timer.c.29.o
 
-.debug_line     0x0000000000000000     0x17e7
+.debug_line     0x0000000000000000     0x18a5
  .debug_line    0x0000000000000000      0x15c src/c/ftoa.c.29.o
- .debug_line    0x000000000000015c      0x2d1 src/c/main.c.29.o
- .debug_line    0x000000000000042d      0x18d src/c/mini-printf.c.29.o
- .debug_line    0x00000000000005ba      0x296 src/c/num_sets.c.29.o
- .debug_line    0x0000000000000850      0x44b src/c/sets.c.29.o
- .debug_line    0x0000000000000c9b      0x38a src/c/timer.c.29.o
- .debug_line    0x0000000000001025      0x13c aplite/appinfo.auto.c.29.o
- .debug_line    0x0000000000001161       0xc4 aplite/src/resource_ids.auto.c.29.o
- .debug_line    0x0000000000001225      0x20a /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
- .debug_line    0x000000000000142f      0x226 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
- .debug_line    0x0000000000001655      0x10c /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
- .debug_line    0x0000000000001761       0x86 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
+ .debug_line    0x000000000000015c      0x2d2 src/c/main.c.29.o
+ .debug_line    0x000000000000042e      0x18d src/c/mini-printf.c.29.o
+ .debug_line    0x00000000000005bb      0x296 src/c/num_sets.c.29.o
+ .debug_line    0x0000000000000851      0x44b src/c/sets.c.29.o
+ .debug_line    0x0000000000000c9c      0x38a src/c/timer.c.29.o
+ .debug_line    0x0000000000001026      0x13c aplite/appinfo.auto.c.29.o
+ .debug_line    0x0000000000001162       0xc4 aplite/src/resource_ids.auto.c.29.o
+ .debug_line    0x0000000000001226       0xbd src/message_keys.auto.c.29.o
+ .debug_line    0x00000000000012e3      0x20a /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_addsubdf3.o)
+ .debug_line    0x00000000000014ed      0x226 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_muldivdf3.o)
+ .debug_line    0x0000000000001713      0x10c /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_cmpdf2.o)
+ .debug_line    0x000000000000181f       0x86 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a(_arm_fixdfsi.o)
 
-.debug_str      0x0000000000000000     0x12a9
+.debug_str      0x0000000000000000     0x140d
  .debug_str     0x0000000000000000       0xc7 src/c/ftoa.c.29.o
                                         0x117 (size before relaxing)
  .debug_str     0x00000000000000c7      0x5e6 src/c/main.c.29.o
@@ -1886,6 +1934,8 @@ OUTPUT(/Users/thomasfiveash/Desktop/PebbleWarmupSetsV2/build/aplite/pebble-app.e
                                         0x259 (size before relaxing)
  .debug_str     0x000000000000118b      0x11e aplite/src/resource_ids.auto.c.29.o
                                         0x1ed (size before relaxing)
+ .debug_str     0x00000000000012a9      0x164 src/message_keys.auto.c.29.o
+                                        0x233 (size before relaxing)
 
 .debug_frame    0x0000000000000000      0x6a0
  .debug_frame   0x0000000000000000       0x34 src/c/ftoa.c.29.o
