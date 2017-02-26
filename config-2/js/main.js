@@ -16,6 +16,8 @@ function submitHandler() {
 
 function loadOptions() {
   var $unit = document.getElementsByName("unit-tab");
+  var $lbs = $('#lbs');
+  var $kgs = $('#kgs');
   var $barbellWeight = $('#barbell-weight');
   var $weight100lbs = $('#weight-100-lbs');
   var $weight55lbs = $('#weight-55-lbs');
@@ -37,6 +39,16 @@ function loadOptions() {
   if (localStorage.unitSystem) {
     $unit[localStorage.unitSystem].className = "tab-button active";
     $unit[1-localStorage.unitSystem].className = "tab-button";
+    if (localStorage.unitSystem == 0)
+    {
+      $lbs.style.display = "";
+      $kgs.style.display = "none";
+    }
+    else if (localStorage.unitSystem == 1)
+    {
+      $lbs.style.display = "none";
+      $kgs.style.display = "";
+    }
     $barbellWeight[0].value = localStorage.barWeight;
     $weight100lbs[0].value = localStorage.w100p;
     $weight55lbs[0].value = localStorage.w55p;

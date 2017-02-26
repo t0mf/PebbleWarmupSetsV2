@@ -151,8 +151,16 @@
 		}
 
 		window.onload = function() {
-			var defaultDisplay = "none";
-			document.getElementById('kgs').style.display = defaultDisplay;
+			if (localStorage.unitSystem == 0)
+    		{
+      			document.getElementById('lbs').style.display = "";
+      			document.getElementById('kgs').style.display = "none";
+    		}
+    		else if (localStorage.unitSystem == 1)
+    		{
+      			document.getElementById('lbs').style.display = "none";
+      			document.getElementById('kgs').style.display = "";
+    		}
 		}
 
 		document.getElementById('unit-tab-lbs').onclick = function() {
