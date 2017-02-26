@@ -9,7 +9,26 @@
         ],
         "displayName": "Warmup Sets v2",
         "enableMultiJS": false,
-        "messageKeys": [],
+        "messageKeys": {
+            "barWeight": 2000,
+            "unitSystem": 1000,
+            "w100p": 3000,
+            "w10k": 15000,
+            "w10p": 8000,
+            "w15k": 14000,
+            "w1point25k": 18000,
+            "w20k": 13000,
+            "w25k": 12000,
+            "w25p": 7000,
+            "w2point5k": 17000,
+            "w2point5p": 10000,
+            "w35p": 6000,
+            "w45p": 5000,
+            "w50k": 11000,
+            "w55p": 4000,
+            "w5k": 16000,
+            "w5p": 9000
+        },
         "projectType": "native",
         "resources": {
             "media": [
@@ -20,14 +39,8 @@
                     "type": "bitmap"
                 },
                 {
-                    "file": "images/pause",
-                    "name": "pause",
-                    "targetPlatforms": null,
-                    "type": "bitmap"
-                },
-                {
-                    "file": "images/play",
-                    "name": "play",
+                    "file": "images/plus",
+                    "name": "plus",
                     "targetPlatforms": null,
                     "type": "bitmap"
                 },
@@ -38,44 +51,14 @@
                     "type": "bitmap"
                 },
                 {
-                    "file": "images/15_minus",
-                    "name": "15_minus",
+                    "file": "images/play",
+                    "name": "play",
                     "targetPlatforms": null,
                     "type": "bitmap"
                 },
                 {
-                    "file": "images/15_plus",
-                    "name": "15_plus",
-                    "targetPlatforms": null,
-                    "type": "bitmap"
-                },
-                {
-                    "file": "images/25_minus",
-                    "name": "25_minus",
-                    "targetPlatforms": null,
-                    "type": "bitmap"
-                },
-                {
-                    "file": "images/25_plus",
-                    "name": "25_plus",
-                    "targetPlatforms": null,
-                    "type": "bitmap"
-                },
-                {
-                    "file": "images/5_minus",
-                    "name": "5_minus",
-                    "targetPlatforms": null,
-                    "type": "bitmap"
-                },
-                {
-                    "file": "images/5_plus",
-                    "name": "5_plus",
-                    "targetPlatforms": null,
-                    "type": "bitmap"
-                },
-                {
-                    "file": "images/check_mark",
-                    "name": "check_mark",
+                    "file": "images/pause",
+                    "name": "pause",
                     "targetPlatforms": null,
                     "type": "bitmap"
                 },
@@ -86,8 +69,44 @@
                     "type": "bitmap"
                 },
                 {
-                    "file": "images/plus",
-                    "name": "plus",
+                    "file": "images/check_mark",
+                    "name": "check_mark",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/5_plus",
+                    "name": "5_plus",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/5_minus",
+                    "name": "5_minus",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/25_plus",
+                    "name": "25_plus",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/25_minus",
+                    "name": "25_minus",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/15_plus",
+                    "name": "15_plus",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/15_minus",
+                    "name": "15_minus",
                     "targetPlatforms": null,
                     "type": "bitmap"
                 }
