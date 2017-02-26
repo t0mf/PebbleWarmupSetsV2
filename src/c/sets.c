@@ -12,10 +12,10 @@ static TextLayer *s_list_message_layer;
 static TextLayer *s_list_message_layer2;
 static TextLayer *s_time_layer;
 
-static int baseSet[2] = {1, 10};
+static int baseSet[2] = {2, 5};
 char plates[16][25];
 double set_percentages[15];
-int weights[15+2];
+double weights[15+2];
 int plate_numbers_copied[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 
 int numReps[15][15] = 
@@ -76,14 +76,14 @@ static void draw_row_callback(GContext *ctx, const Layer *cell_layer, MenuIndex 
     
     ftoa(buff1, baseSet[0], 0);
     ftoa(buff2, baseSet[1], 0);
-    ftoa(buff3, weights[cell_index->row], 0);
+    ftoa(buff3, weights[cell_index->row], 2);
     
     snprintf(s_buff4, sizeof(s_buff4), "%sx%s %s %s", buff1, buff2, buff3, unit_type);
     snprintf(s_buff5, sizeof(s_buff5), "%s", plates[cell_index->row]);
   }
   else if (cell_index->row == sets + 1)
   {
-    ftoa(buff1, weights[cell_index->row], 0);
+    ftoa(buff1, weights[cell_index->row], 2);
     
     snprintf(s_buff4, sizeof(s_buff4), "%s %s", buff1, unit_type);
     snprintf(s_buff5, sizeof(s_buff5), "%s", plates[cell_index->row]);
@@ -131,8 +131,9 @@ void calculate_weights(void)
     }
     else
     {
-      int temp;
-      temp = (set_percentages[i-1]/100) * weight;
+      int temp = weight - barbell[unit_system];
+      temp = (set_percentages[i-1]/100) * temp;
+      temp += barbell[unit_system];
       if (temp < barbell[unit_system])
       {
         temp = barbell[unit_system];
@@ -237,8 +238,17 @@ void calculate_barbell_math(double d_weight, int i) {
       {
         plate_numbers_copied[j] = plate_numbers[j][unit_system];
       }
-      weights[i] -= 5;
-      calculate_barbell_math(weight_hold-5, i);
+      if (unit_system == 0)
+      {
+        weights[i] -= 5;
+        calculate_barbell_math(weight_hold-5, i);
+      }
+      else
+      {
+        weights[i] -= 2.5;
+        calculate_barbell_math(weight_hold-2.5, i);
+      }
+      
       return;
     }
   }

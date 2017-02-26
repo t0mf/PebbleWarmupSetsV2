@@ -30,7 +30,7 @@ static void handle_second_tick(struct tm *tick_time, TimeUnits units_changed)
 }
 
 static void select_click_handler(ClickRecognizerRef recognize, void *context) {
-  //persist_write_int(m_weight_d*10);
+  persist_write_int(4+unit_system, sets);
   sets_init();
   window_stack_push(sets_window, false);
 }
@@ -73,7 +73,16 @@ static void window_load(Window* window)
 {
   Layer *window_layer = window_get_root_layer(window);
   GRect bounds = layer_get_bounds(window_layer);
-  sets = 3;
+  
+  if (persist_exists(4+unit_system))
+  {
+    sets = persist_read_int(4+unit_system);
+  }
+  else
+  {
+    sets = 3;  
+  }
+  
   
   // Create "Select a Weight" text layer
   text_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-45, bounds.origin.y+23}, .size = { 90, 60 } });

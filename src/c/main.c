@@ -12,7 +12,7 @@
 #define KEY_w25p 7000
 #define KEY_w10p 8000
 #define KEY_w5p 9000
-#define KEY_w2point5p 1000
+#define KEY_w2point5p 10000
 #define KEY_w50k 11000
 #define KEY_w25k 12000
 #define KEY_w20k 13000
@@ -34,7 +34,7 @@ static GBitmap *res_check_mark;
 
 static ActionBarLayer *action_bar_layer;
 
-static int max_weight = 10000;
+double max_weight = 10000;
 int temp = 0;
 static char s_time_text[] = "00:00   ";
 char weight_buff[10];
@@ -55,6 +55,114 @@ void calc_max_weight(void)
   }
   
   max_weight += barbell[unit_system];
+}
+
+void load_settings(void)
+{
+  // Load unit system
+  if (persist_exists(0))
+  {
+    unit_system = persist_read_int(0);
+  }
+  else
+  {
+    unit_system = 0;
+  }
+  
+  // Load barbell weight
+  if (persist_exists(1))
+  {
+    barbell[unit_system] = persist_read_int(1);
+  }
+  else
+  {
+    if (unit_system == 0)
+    {
+      barbell[unit_system] = 45;
+    }
+    else if (unit_system == 1)
+    {
+      barbell[unit_system] = 20;
+    }
+  }
+  
+  if (persist_exists(2+unit_system))
+  {
+    weight = persist_read_int(2+unit_system)/10;
+  }
+  else
+  {
+    weight = barbell[unit_system];  
+  }
+  
+  // Load imperial plate numbers
+  if (persist_exists(KEY_w100p))
+  {
+    plate_numbers[0][0] = persist_read_int(KEY_w100p);
+  }
+  if (persist_exists(KEY_w55p))
+  {
+    plate_numbers[1][0] = persist_read_int(KEY_w55p);
+  }
+  if (persist_exists(KEY_w45p))
+  {
+    plate_numbers[2][0] = persist_read_int(KEY_w45p);
+  }
+  if (persist_exists(KEY_w35p))
+  {
+    plate_numbers[3][0] = persist_read_int(KEY_w35p);
+  }
+  if (persist_exists(KEY_w25p))
+  {
+    plate_numbers[4][0] = persist_read_int(KEY_w25p);
+  }
+  if (persist_exists(KEY_w10p))
+  {
+    plate_numbers[5][0] = persist_read_int(KEY_w10p);
+  }
+  if (persist_exists(KEY_w5p))
+  {
+    plate_numbers[6][0] = persist_read_int(KEY_w5p);
+  }
+  if (persist_exists(KEY_w2point5p))
+  {
+    plate_numbers[7][0] = persist_read_int(KEY_w2point5p);
+  }
+
+  // Load imperial plate numbers
+  if (persist_exists(KEY_w50k))
+  {
+    plate_numbers[0][1] = persist_read_int(KEY_w50k);
+  }
+  if (persist_exists(KEY_w25k))
+  {
+    plate_numbers[1][1] = persist_read_int(KEY_w25k);
+  }
+  if (persist_exists(KEY_w20k))
+  {
+    plate_numbers[2][1] = persist_read_int(KEY_w20k);
+  }
+  if (persist_exists(KEY_w15k))
+  {
+    plate_numbers[3][1] = persist_read_int(KEY_w15k);
+  }
+  if (persist_exists(KEY_w10k))
+  {
+    plate_numbers[4][1] = persist_read_int(KEY_w10k);
+  }
+  if (persist_exists(KEY_w5k))
+  {
+    plate_numbers[5][1] = persist_read_int(KEY_w5k);
+  }
+  if (persist_exists(KEY_w2point5k))
+  {
+    plate_numbers[6][1] = persist_read_int(KEY_w2point5k);
+  }
+  if (persist_exists(KEY_w1point25k))
+  {
+    plate_numbers[7][1] = persist_read_int(KEY_w1point25k);
+  }
+  
 }
 
 static void inbox_received_handler(DictionaryIterator *iter, void *context)
@@ -86,45 +194,21 @@ static void inbox_received_handler(DictionaryIterator *iter, void *context)
   Tuple *w2point5p_t = dict_find(iter, KEY_w2point5p);
   
   if (w100p_t)
-  {
-    plate_numbers[0][0] = (w100p_t->value->int16);
     persist_write_int(KEY_w100p, w100p_t->value->int16);
-  }
   if (w55p_t)
-  {
-    plate_numbers[1][0] = (w55p_t->value->int16);
     persist_write_int(KEY_w55p, w55p_t->value->int16);
-  }
   if (w45p_t)
-  {
-    plate_numbers[2][0] = (w45p_t->value->int16);
     persist_write_int(KEY_w45p, w45p_t->value->int16);
-  }
   if (w35p_t)
-  {
-    plate_numbers[3][0] = (w35p_t->value->int16);
     persist_write_int(KEY_w35p, w35p_t->value->int16);
-  }
   if (w25p_t)
-  {
-    plate_numbers[4][0] = (w25p_t->value->int16);
     persist_write_int(KEY_w25p, w25p_t->value->int16);
-  }
   if (w10p_t)
-  {
-    plate_numbers[5][0] = (w10p_t->value->int16);
     persist_write_int(KEY_w10p, w10p_t->value->int16);
-  }
   if (w5p_t)
-  {
-    plate_numbers[6][0] = (w5p_t->value->int16);
     persist_write_int(KEY_w5p, w5p_t->value->int16);
-  }
   if (w2point5p_t)
-  {
-    plate_numbers[7][0] = (w2point5p_t->value->int16);
     persist_write_int(KEY_w2point5p, w2point5p_t->value->int16);
-  }
   
   Tuple *w50k_t = dict_find(iter, KEY_w50k);
   Tuple *w25k_t = dict_find(iter, KEY_w25k);
@@ -136,47 +220,52 @@ static void inbox_received_handler(DictionaryIterator *iter, void *context)
   Tuple *w1point25k_t = dict_find(iter, KEY_w1point25k);
   
   if (w50k_t)
-  {
-    plate_numbers[0][1] = (w50k_t->value->int16);
     persist_write_int(KEY_w50k, w50k_t->value->int16);
-  }
   if (w25k_t)
-  {
-    plate_numbers[1][1] = (w25k_t->value->int16);
     persist_write_int(KEY_w25k, w25k_t->value->int16);
-  }
   if (w20k_t)
-  {
-    plate_numbers[2][1] = (w20k_t->value->int16);
     persist_write_int(KEY_w20k, w20k_t->value->int16);
-  }
   if (w15k_t)
-  {
-    plate_numbers[3][1] = (w15k_t->value->int16);
     persist_write_int(KEY_w15k, w15k_t->value->int16);
-  }
   if (w10k_t)
-  {
-    plate_numbers[4][1] = (w10k_t->value->int16);
     persist_write_int(KEY_w10k, w10k_t->value->int16);
-  }
   if (w5k_t)
-  {
-    plate_numbers[5][1] = (w5k_t->value->int16);
     persist_write_int(KEY_w5k, w5k_t->value->int16);
-  }
   if (w2point5k_t)
-  {
-    plate_numbers[6][1] = (w2point5k_t->value->int16);
     persist_write_int(KEY_w2point5k, w2point5k_t->value->int16);
-  }
   if (w1point25k_t)
-  {
-    plate_numbers[7][1] = (w1point25k_t->value->int16);
     persist_write_int(KEY_w1point25k, w1point25k_t->value->int16);
+  
+  load_settings();
+  
+  // Update action bar
+  if (unit_system == 1)
+  {
+    text_layer_set_text(text_layer, "Kilograms");
+    res_up_arrow = gbitmap_create_with_resource(RESOURCE_ID_25_plus);
+    res_down_arrow = gbitmap_create_with_resource(RESOURCE_ID_25_minus);
+  }
+  else
+  {
+    text_layer_set_text(text_layer, "Pounds");
+    res_up_arrow = gbitmap_create_with_resource(RESOURCE_ID_5_plus);
+    res_down_arrow = gbitmap_create_with_resource(RESOURCE_ID_5_minus);
   }
   
+  action_bar_layer_set_icon(action_bar_layer, BUTTON_ID_UP, res_up_arrow);
+  action_bar_layer_set_icon(action_bar_layer, BUTTON_ID_SELECT, res_check_mark);
+  action_bar_layer_set_icon(action_bar_layer, BUTTON_ID_DOWN, res_down_arrow);
+  
+  // Update weight text
   calc_max_weight();
+  
+  ftoa(weight_buff, weight, 2);
+  temp = weight;
+  if (unit_system == 1 && temp % 5 == 0) {
+    strcat(weight_buff,".0");
+  }
+  text_layer_set_text(weight_layer, weight_buff);
+    
 }
 
 static void handle_second_tick(struct tm *tick_time, TimeUnits units_changed)
@@ -191,6 +280,7 @@ static void handle_second_tick(struct tm *tick_time, TimeUnits units_changed)
 static void select_click_handler(ClickRecognizerRef recognize, void *context) {
   ftoa(weight_buff, weight, 2);
   text_layer_set_text(weight_layer, weight_buff);
+  persist_write_int(2+unit_system, weight*10);
   num_sets_init();
   window_stack_push(num_sets_window, false);
 }
@@ -345,111 +435,11 @@ void deinit(void)
   window_destroy(main_window);
 }
 
-void load_settings(void)
-{
-  // Load unit system
-  if (persist_exists(0))
-  {
-    unit_system = persist_read_int(0);
-  }
-  else
-  {
-    unit_system = 0;
-  }
-  
-  // Load barbell weight
-  if (persist_exists(1))
-  {
-    barbell[unit_system] = persist_read_int(1);
-  }
-  else
-  {
-    if (unit_system == 0)
-    {
-      barbell[unit_system] = 45;
-    }
-    else if (unit_system == 1)
-    {
-      barbell[unit_system] = 20;
-    }
-  }
-  
-  // Load imperial plate numbers
-  if (persist_exists(KEY_w100p))
-  {
-    plate_numbers[0][0] = persist_read_int(KEY_w100p);
-  }
-  if (persist_exists(KEY_w55p))
-  {
-    plate_numbers[0][0] = persist_read_int(KEY_w55p);
-  }
-  if (persist_exists(KEY_w45p))
-  {
-    plate_numbers[0][0] = persist_read_int(KEY_w45p);
-  }
-  if (persist_exists(KEY_w35p))
-  {
-    plate_numbers[0][0] = persist_read_int(KEY_w35p);
-  }
-  if (persist_exists(KEY_w25p))
-  {
-    plate_numbers[0][0] = persist_read_int(KEY_w25p);
-  }
-  if (persist_exists(KEY_w10p))
-  {
-    plate_numbers[0][0] = persist_read_int(KEY_w10p);
-  }
-  if (persist_exists(KEY_w5p))
-  {
-    plate_numbers[0][0] = persist_read_int(KEY_w5p);
-  }
-  if (persist_exists(KEY_w2point5p))
-  {
-    plate_numbers[0][0] = persist_read_int(KEY_w2point5p);
-  }
-
-  // Load imperial plate numbers
-  if (persist_exists(KEY_w50k))
-  {
-    plate_numbers[0][1] = persist_read_int(KEY_w50k);
-  }
-  if (persist_exists(KEY_w25k))
-  {
-    plate_numbers[1][1] = persist_read_int(KEY_w25k);
-  }
-  if (persist_exists(KEY_w20k))
-  {
-    plate_numbers[2][1] = persist_read_int(KEY_w20k);
-  }
-  if (persist_exists(KEY_w15k))
-  {
-    plate_numbers[3][1] = persist_read_int(KEY_w15k);
-  }
-  if (persist_exists(KEY_w10k))
-  {
-    plate_numbers[4][1] = persist_read_int(KEY_w10k);
-  }
-  if (persist_exists(KEY_w5k))
-  {
-    plate_numbers[5][1] = persist_read_int(KEY_w5k);
-  }
-  if (persist_exists(KEY_w2point5k))
-  {
-    plate_numbers[6][1] = persist_read_int(KEY_w2point5k);
-  }
-  if (persist_exists(KEY_w1point25k))
-  {
-    plate_numbers[7][1] = persist_read_int(KEY_w1point25k);
-  }
-  
-}
-
 int main(void)
 {
   load_settings();
   calc_max_weight();
-  weight = 100;
-  
+
    // Initialize kg or lbs
   if (unit_system == 0) { unit_type = " lbs"; } 
   else if (unit_system == 1) { unit_type = " kgs"; }
