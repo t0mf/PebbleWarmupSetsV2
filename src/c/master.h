@@ -9,7 +9,8 @@ int sets;
 int unit_system;
 char *unit_type;
 extern double step_size[2];
-extern double plate_weights[6][2];
+extern double plate_weights[8][2];
+extern int plate_numbers[8][2];
 extern int barbell[2];
 
 #endif

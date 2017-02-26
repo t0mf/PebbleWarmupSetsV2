@@ -15,12 +15,16 @@ static GBitmap *res_check_mark;
 
 static ActionBarLayer *action_bar_layer;
 
-static int max_weight = 1000;
+static int max_weight = 3000;
 int temp = 0;
 static char s_time_text[] = "00:00   ";
 char weight_buff[10];
 double step_size[2] = {5, 2.5};
 int barbell[2] = {45, 20};
+
+// Initialize plate weights for imperial and metric
+double plate_weights[8][2] = { {100, 50.00}, {55, 25.00}, {45, 20.00}, {35, 15.00}, {25, 10.00}, {10, 5.00}, {5, 2.50}, {2.5, 1.25} };
+int plate_numbers[8][2] =    { {2,   2},     {2,  2},     {16, 16},    {0,  0},     {2,  2},     {4,  4},    {2, 2},    {2,   2}    };
 
 static void handle_second_tick(struct tm *tick_time, TimeUnits units_changed)
 {
@@ -190,7 +194,7 @@ int main(void)
 {
   // set the unit system
   unit_system = 0;
-  weight = 185;
+  weight = 665;
   
    // Initialize kg or lbs
   if (unit_system == 0) { unit_type = " lbs"; } 

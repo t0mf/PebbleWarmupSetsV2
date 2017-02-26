@@ -5,7 +5,7 @@
 #include "mini-printf.h"
 #include "ftoa.h"
 #include "math.h"
-//#include "timer.h"
+#include "timer.h"
 
 static MenuLayer *s_menu_layer;
 static TextLayer *s_list_message_layer;
@@ -13,9 +13,11 @@ static TextLayer *s_list_message_layer2;
 static TextLayer *s_time_layer;
 
 static int baseSet[2] = {1, 10};
-char plates[16][16];
+char plates[16][25];
 double set_percentages[15];
 int weights[15+2];
+int plate_numbers_copied[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+
 int numReps[15][15] = 
   {
     { 5 },
@@ -52,8 +54,8 @@ static void handle_second_tick(struct tm *tick_time, TimeUnits units_changed)
 
 static void select_click(struct MenuLayer *menu_layer, MenuIndex *cell_index, void *callback_context)
 {
-  //init_timer_window();
-  //window_stack_push(s_timer_window, false);
+  init_timer_window();
+  window_stack_push(s_timer_window, false);
 }
 
 static uint16_t get_num_rows_callback(MenuLayer *menu_layer, uint16_t section_index, void *context)
@@ -77,14 +79,14 @@ static void draw_row_callback(GContext *ctx, const Layer *cell_layer, MenuIndex 
     ftoa(buff3, weights[cell_index->row], 0);
     
     snprintf(s_buff4, sizeof(s_buff4), "%sx%s %s %s", buff1, buff2, buff3, unit_type);
-    snprintf(s_buff5, sizeof(s_buff5), "(%s )", "Bar");
+    snprintf(s_buff5, sizeof(s_buff5), "%s", plates[cell_index->row]);
   }
   else if (cell_index->row == sets + 1)
   {
     ftoa(buff1, weights[cell_index->row], 0);
     
     snprintf(s_buff4, sizeof(s_buff4), "%s %s", buff1, unit_type);
-    snprintf(s_buff5, sizeof(s_buff5), "(%s )", plates[cell_index->row-1]);
+    snprintf(s_buff5, sizeof(s_buff5), "%s", plates[cell_index->row]);
   }
   else
   {
@@ -92,11 +94,9 @@ static void draw_row_callback(GContext *ctx, const Layer *cell_layer, MenuIndex 
     ftoa(buff3, weights[cell_index->row], 3);
     
     snprintf(s_buff4, sizeof(s_buff4), "1x%s %s %s", buff2, buff3, unit_type);
-    snprintf(s_buff5, sizeof(s_buff5), "(%s )", plates[cell_index->row-1]);
+    snprintf(s_buff5, sizeof(s_buff5), "%s", plates[cell_index->row]);
   }
-   
-    //snprintf(s_buff4, sizeof(s_buff4), ""%s %s %s", sets[cell_index->row], sets_buff, unit_type);
-    //snprintf(s_buff5, sizeof(s_buff5), "(%s )", plates[cell_index->row]);"
+  
     menu_cell_basic_draw(ctx, cell_layer, s_buff4, s_buff5, NULL);
 }
 
@@ -147,6 +147,121 @@ void calculate_weights(void)
   }
 }
 
+void concatPlates(int plateNumber, int i, double plateWeights) {
+  ftoa(sets_buff, plateWeights, 5);
+    if (plateNumber > 1) {
+      ret = snprintf(plates[i] + head, 10, " %dx%s" , plateNumber, sets_buff);
+      head += ret;
+    } else {
+      ret = snprintf(plates[i] + head, 6, " %s", sets_buff);
+      head += ret;
+    }
+}
+
+void calculate_barbell_math(double d_weight, int i) {
+  
+  for (int j = 0; j < 8; j++)
+  {
+    plate_numbers_copied[j] = plate_numbers[j][unit_system];
+  }
+  
+  double weight_hold = d_weight;
+  
+  d_weight -= barbell[unit_system];
+
+  if ( d_weight == 0) { strcpy(plates[i]," Bar"); }
+  
+  d_weight /= 2;
+  
+  int weight_100 = 0;
+  int weight_55 = 0;
+  int weight_45 = 0;
+  int weight_35 = 0;
+  int weight_25 = 0;
+  int weight_10 = 0;
+  int weight_5 = 0;
+  int weight_2half = 0;
+    
+  while (d_weight > 0) {
+    if (d_weight >= plate_weights[0][unit_system] && plate_numbers_copied[0] >= 2)
+    {
+      weight_100 += 1;
+      d_weight -= plate_weights[0][unit_system];
+      plate_numbers_copied[0] -= 2;
+    }
+    else if (d_weight >= plate_weights[1][unit_system] &&  plate_numbers_copied[1] >= 2)
+    {
+      weight_55 += 1;
+      d_weight -= plate_weights[1][unit_system];
+      plate_numbers_copied[1] -= 2;
+    }
+   else if (d_weight >= plate_weights[2][unit_system] &&  plate_numbers_copied[2] >= 2)
+    {
+      weight_45 += 1;
+      d_weight -= plate_weights[2][unit_system];
+      plate_numbers_copied[2] -= 2;
+    }
+    else if (d_weight >= plate_weights[3][unit_system] &&  plate_numbers_copied[3] >= 2)
+    {
+      weight_35 += 1;
+      d_weight -= plate_weights[3][unit_system];
+      plate_numbers_copied[3] -= 2;
+    }
+    else if (d_weight >= plate_weights[4][unit_system] &&  plate_numbers_copied[4] >= 2)
+    {
+      weight_25 += 1;
+      d_weight -= plate_weights[4][unit_system];
+      plate_numbers_copied[4] -= 2;
+    }
+    else if (d_weight >= plate_weights[5][unit_system] &&  plate_numbers_copied[5] >= 2)
+    {
+      weight_10 += 1;
+      d_weight -= plate_weights[5][unit_system];
+      plate_numbers_copied[5] -= 2;
+    }
+    else if (d_weight >= plate_weights[6][unit_system] &&  plate_numbers_copied[6] >= 2)
+    {
+      weight_5 += 1;
+      d_weight -= plate_weights[6][unit_system];
+      plate_numbers_copied[6] -= 2;
+    }
+    else if (d_weight >= plate_weights[7][unit_system] &&  plate_numbers_copied[7] >= 2)
+    {
+      weight_2half += 1;
+      d_weight -= plate_weights[7][unit_system];
+      plate_numbers_copied[7] -= 2;
+    }
+    else
+    {
+      for (int j = 0; j < 8; j++)
+      {
+        plate_numbers_copied[j] = plate_numbers[j][unit_system];
+      }
+      weights[i] -= 5;
+      calculate_barbell_math(weight_hold-5, i);
+      return;
+    }
+  }
+  
+  head = 0;
+  
+  if (weight_100 != 0) { concatPlates(weight_100, i, plate_weights[0][unit_system]); }
+  if (weight_55 != 0) { concatPlates(weight_55, i, plate_weights[1][unit_system]); }
+  if (weight_45 != 0) { concatPlates(weight_45, i, plate_weights[2][unit_system]); }
+  if (weight_35 != 0) { concatPlates(weight_35, i, plate_weights[3][unit_system]); }
+  if (weight_25 != 0) { concatPlates(weight_25, i, plate_weights[4][unit_system]); }
+  if (weight_10 != 0) { concatPlates(weight_10, i, plate_weights[5][unit_system]); }
+  if (weight_5 != 0) { concatPlates(weight_5, i, plate_weights[6][unit_system]); }
+  if (weight_2half != 0) { concatPlates(weight_2half, i, plate_weights[7][unit_system]); }
+  
+}
+
+void do_stuff(void) {
+  for (int i = 0; i < 16; i++)
+  {
+    calculate_barbell_math(weights[i], i);
+  }
+}
 static void sets_window_load(Window *window) {
   
   Layer *window_layer = window_get_root_layer(window);
@@ -162,17 +277,6 @@ static void sets_window_load(Window *window) {
   });
   layer_add_child(window_layer, menu_layer_get_layer(s_menu_layer));
   
-  /*
-  const GEdgeInsets message_insets = {.top = 137};
-  s_list_message_layer = text_layer_create(grect_inset(bounds, message_insets));
-  text_layer_set_text_alignment(s_list_message_layer, GTextAlignmentCenter);
-  //if (exercise_int == 6) {
-    text_layer_set_text(s_list_message_layer, "Plate Math");
-  //} else {
-   // text_layer_set_text(s_list_message_layer, exercise_name_strings[exercise_int]);
-  //}
-  layer_add_child(window_layer, text_layer_get_layer(s_list_message_layer));
-  */
   static char s_buff4[16];
   ftoa(sets_buff, weight, 5);
   snprintf(s_buff4, sizeof(s_buff4), "%s %s", sets_buff, unit_type);
@@ -204,6 +308,8 @@ static void sets_window_unload(Window *window) {
 void sets_init(void) {
   calculate_percentages();
   calculate_weights();
+  do_stuff();
+  
   if(!sets_window) {
     sets_window = window_create();
     window_set_window_handlers(sets_window, (WindowHandlers) {
@@ -213,129 +319,5 @@ void sets_init(void) {
     });
   }
   
-  //calculate_sets();
-  //calculate_weights();
-  //do_stuff();
   window_stack_push(sets_window, false);  
 }
-
-
-
-/*
-void calculate_sets(void) {
-  for (int i = 0; i < 5; i++) {
-    //sets[i] = exercise_set_strings[exercise_int][i]; 
-  }
-}
-
-void calculate_weights(void) {
-  if (strcmp(exercise_name_strings[exercise_int],"Deadlift") == 0) {
-    for (int i = 0; i < 4; i++) {
-      weights[i] = findWeight(exercise_multipliers[exercise_int][i] *m_weight_d);
-    }
-  } else {
-    for (int i = 0; i < 5; i++) {
-      weights[i] = findWeight(exercise_multipliers[exercise_int][i] *m_weight_d);
-    }
-  }
-}
-
-double findWeight(double num) {
-  int tmp = num;
-  if (unit_system == 0) {
-    if ((tmp - (tmp % 5)) < barbell_weights[unit_system])
-      return barbell_weights[unit_system];
-    else
-    return (tmp - (tmp % 5));
-  } else if (unit_system == 1) {
-      num /= 2.5;
-      num = floor(num);
-      num *= 2.5;
-      if (num < barbell_weights[unit_system])
-        return barbell_weights[unit_system];
-      return num;
-  }
-  return -1;
-}
-
-void calculate_barbell_math(double weight, int i) {
-
-  double bar_weight = barbell_weights[unit_system];
-  
-  weight -= bar_weight;
-  
-  if ( weight == 0) { strcpy(plates[i]," Bar"); }
-  
-  weight /= 2;
-  
-  int weight_45 = 0;
-  int weight_35 = 0;
-  int weight_25 = 0;
-  int weight_10 = 0;
-  int weight_5 = 0;
-  int weight_2half = 0;
-    
-  while (weight > 0) {
-    if (weight < plate_weights[4][unit_system]) {
-      weight_2half += 1;
-      weight -= plate_weights[5][unit_system];
-    } else if (weight < plate_weights[3][unit_system]) {
-      weight_5 += 1;
-      weight -= plate_weights[4][unit_system];
-    } else if (weight < plate_weights[2][unit_system]) {
-      weight_10 += 1;
-      weight -= plate_weights[3][unit_system];
-    } else if (weight < plate_weights[1][unit_system]) {
-      weight_25 += 1;
-      weight -= plate_weights[2][unit_system];
-    } else if (weight < plate_weights[0][unit_system]) {
-      weight_35 += 1;
-      weight -= plate_weights[1][unit_system];
-    } else if (weight >= plate_weights[0][unit_system]) {
-      weight_45 += 1;
-      weight -= plate_weights[0][unit_system];
-    }  
-  }
-  
-  head = 0;
-  
-  if (weight_45 != 0) { concatPlates(weight_45, i, plate_weights[0][unit_system]); }
-  if (weight_35 != 0) { concatPlates(weight_35, i, plate_weights[1][unit_system]); }
-  if (weight_25 != 0) { concatPlates(weight_25, i, plate_weights[2][unit_system]); }
-  if (weight_10 != 0) { concatPlates(weight_10, i, plate_weights[3][unit_system]); }
-  if (weight_5 != 0) { concatPlates(weight_5, i, plate_weights[4][unit_system]); }
-  if (weight_2half != 0) { concatPlates(weight_2half, i, plate_weights[5][unit_system]); }
-  
-}
-
-void concatPlates(int plateNumber, int i, double plateWeights) {
-  ftoa(sets_buff, plateWeights, 5);
-    if (plateNumber > 1) {
-      ret = snprintf(plates[i] + head, 10, " %dx%s" , plateNumber, sets_buff);
-      head += ret;
-    } else {
-      ret = snprintf(plates[i] + head, 6, " %s", sets_buff);
-      head += ret;
-    }
-}
-
-void do_stuff(void) {
-  for (int i = 0; i < 5; i++) {
-    calculate_barbell_math(weights[i], i);
-  }
-}
-
-
-
-*/
-
-
-
-
-
-
-
-
-
-
-

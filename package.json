@@ -14,6 +14,42 @@
         "resources": {
             "media": [
                 {
+                    "file": "images/reset",
+                    "name": "reset",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/pause",
+                    "name": "pause",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/play",
+                    "name": "play",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/play_reset",
+                    "name": "play_reset",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/15_minus",
+                    "name": "15_minus",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/15_plus",
+                    "name": "15_plus",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
                     "file": "images/25_minus",
                     "name": "25_minus",
                     "targetPlatforms": null,

@@ -30,8 +30,6 @@ static void handle_second_tick(struct tm *tick_time, TimeUnits units_changed)
 }
 
 static void select_click_handler(ClickRecognizerRef recognize, void *context) {
-  ftoa(sets_buff, sets, 2);
-  text_layer_set_text(sets_layer, sets_buff);
   //persist_write_int(m_weight_d*10);
   sets_init();
   window_stack_push(sets_window, false);
