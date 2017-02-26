@@ -1,0 +1,109 @@
+{
+    "targetPlatforms": [
+        "aplite", 
+        "basalt", 
+        "chalk", 
+        "diorite", 
+        "emery"
+    ], 
+    "projectType": "native", 
+    "messageKeys": {}, 
+    "companyName": "thomasfiveash", 
+    "enableMultiJS": false, 
+    "versionLabel": "1.0", 
+    "longName": "Warmup Sets v2", 
+    "shortName": "Warmup Sets v2", 
+    "name": "warmup-sets-v2", 
+    "sdkVersion": "3", 
+    "displayName": "Warmup Sets v2", 
+    "uuid": "7d96d084-33fb-4fec-8edf-7f4013e459ab", 
+    "appKeys": {}, 
+    "capabilities": [
+        "configurable"
+    ], 
+    "watchapp": {
+        "watchface": false
+    }, 
+    "resources": {
+        "media": [
+            {
+                "targetPlatforms": null, 
+                "type": "bitmap", 
+                "name": "reset", 
+                "file": "images/reset"
+            }, 
+            {
+                "targetPlatforms": null, 
+                "type": "bitmap", 
+                "name": "pause", 
+                "file": "images/pause"
+            }, 
+            {
+                "targetPlatforms": null, 
+                "type": "bitmap", 
+                "name": "play", 
+                "file": "images/play"
+            }, 
+            {
+                "targetPlatforms": null, 
+                "type": "bitmap", 
+                "name": "play_reset", 
+                "file": "images/play_reset"
+            }, 
+            {
+                "targetPlatforms": null, 
+                "type": "bitmap", 
+                "name": "15_minus", 
+                "file": "images/15_minus"
+            }, 
+            {
+                "targetPlatforms": null, 
+                "type": "bitmap", 
+                "name": "15_plus", 
+                "file": "images/15_plus"
+            }, 
+            {
+                "targetPlatforms": null, 
+                "type": "bitmap", 
+                "name": "25_minus", 
+                "file": "images/25_minus"
+            }, 
+            {
+                "targetPlatforms": null, 
+                "type": "bitmap", 
+                "name": "25_plus", 
+                "file": "images/25_plus"
+            }, 
+            {
+                "targetPlatforms": null, 
+                "type": "bitmap", 
+                "name": "5_minus", 
+                "file": "images/5_minus"
+            }, 
+            {
+                "targetPlatforms": null, 
+                "type": "bitmap", 
+                "name": "5_plus", 
+                "file": "images/5_plus"
+            }, 
+            {
+                "targetPlatforms": null, 
+                "type": "bitmap", 
+                "name": "check_mark", 
+                "file": "images/check_mark"
+            }, 
+            {
+                "targetPlatforms": null, 
+                "type": "bitmap", 
+                "name": "minus", 
+                "file": "images/minus"
+            }, 
+            {
+                "targetPlatforms": null, 
+                "type": "bitmap", 
+                "name": "plus", 
+                "file": "images/plus"
+            }
+        ]
+    }
+}
