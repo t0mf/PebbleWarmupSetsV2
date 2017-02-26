@@ -17,7 +17,7 @@ static ActionBarLayer *action_bar_layer;
 static int max_sets = 14;
 static int min_sets = 0;
 
-char sets_buff[10];
+char num_sets_buff[10];
 static char s_time_text[] = "00:00   ";
 
 static void handle_second_tick(struct tm *tick_time, TimeUnits units_changed)
@@ -43,9 +43,9 @@ static void up_click_handler(ClickRecognizerRef recognize, void *context) {
     sets = min_sets;
   }
   
-  ftoa(sets_buff, sets, 2);
+  ftoa(num_sets_buff, sets, 2);
   
-  text_layer_set_text(sets_layer, sets_buff);
+  text_layer_set_text(sets_layer, num_sets_buff);
 }
 
 static void down_click_handler(ClickRecognizerRef recognize, void *context) {
@@ -56,9 +56,9 @@ static void down_click_handler(ClickRecognizerRef recognize, void *context) {
     sets = max_sets;
   }
   
-  ftoa(sets_buff, sets, 2);
+  ftoa(num_sets_buff, sets, 2);
   
-  text_layer_set_text(sets_layer, sets_buff);
+  text_layer_set_text(sets_layer, num_sets_buff);
 }
 
 static void click_config_provider(void *context)
@@ -82,10 +82,10 @@ static void window_load(Window* window)
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
   layer_add_child(window_layer, text_layer_get_layer(text_layer));
   
-  ftoa(sets_buff, sets, 2);
+  ftoa(num_sets_buff, sets, 2);
   sets_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-40, bounds.size.h/2-17}, .size = { 80, 28 } });
   text_layer_set_text_alignment(sets_layer, GTextAlignmentCenter);
-  text_layer_set_text(sets_layer, sets_buff);
+  text_layer_set_text(sets_layer, num_sets_buff);
   text_layer_set_font(sets_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));
   layer_add_child(window_layer, text_layer_get_layer(sets_layer));
   
