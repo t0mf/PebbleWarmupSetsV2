@@ -8,7 +8,7 @@
             "configurable"
         ],
         "displayName": "Warmup Sets v2",
-        "enableMultiJS": false,
+        "enableMultiJS": true,
         "messageKeys": {
             "barWeight": 2000,
             "unitSystem": 1000,
