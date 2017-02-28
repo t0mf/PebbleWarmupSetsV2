@@ -173,7 +173,12 @@ static void timer_window_load(Window *window) {
   Layer *window_layer = window_get_root_layer(window);
   GRect bounds = layer_get_frame(window_layer);
 
+  #if defined(PBL_PLATFORM_CHALK)
   s_text_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-43, bounds.size.h/2-18}, .size = { 85, 30 } });
+  #else
+  s_text_layer = text_layer_create((GRect) {.origin = {(bounds.size.w-ACTION_BAR_WIDTH)/2-43, bounds.size.h/2-18}, .size = { 85, 30 } });
+  #endif
+  
 
   snprintf(timer_buff, sizeof(timer_buff), "%02d:%02d:%02d", hours, minutes, seconds);
   text_layer_set_text(s_text_layer, timer_buff);
@@ -181,7 +186,11 @@ static void timer_window_load(Window *window) {
   text_layer_set_text_alignment(s_text_layer, GTextAlignmentCenter);
   layer_add_child(window_layer, text_layer_get_layer(s_text_layer));
   
+  #if defined(PBL_PLATFORM_CHALK)
   s_time_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-30, bounds.origin.y+5}, .size = { 60, 15 } });
+  #else
+  s_time_layer = text_layer_create((GRect) {.origin = {(bounds.size.w-ACTION_BAR_WIDTH)/2-30, bounds.origin.y+5}, .size = { 60, 15 } });
+  #endif
   text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14));
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);
   layer_add_child(window_layer, text_layer_get_layer(s_time_layer));

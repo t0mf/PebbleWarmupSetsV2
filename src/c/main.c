@@ -88,7 +88,7 @@ void load_settings(void)
   
   if (persist_exists(2+unit_system))
   {
-    weight = persist_read_int(2+unit_system)/10;
+    weight = persist_read_int(2+unit_system)/10.0;
   }
   else
   {
@@ -259,7 +259,7 @@ static void inbox_received_handler(DictionaryIterator *iter, void *context)
   // Update weight text
   calc_max_weight();
   
-  ftoa(weight_buff, weight, 2);
+  ftoa(weight_buff, weight, 3);
   temp = weight;
   if (unit_system == 1 && temp % 5 == 0) {
     strcat(weight_buff,".0");
@@ -330,24 +330,40 @@ static void window_load(Window* window)
   GRect bounds = layer_get_bounds(window_layer);
   
   // Create "Select a Weight" text layer
-  text_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-35, bounds.origin.y+33}, .size = { 70, 60 } });
+  #if defined(PBL_PLATFORM_CHALK)
+  text_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-35, bounds.size.h/2-55}, .size = { 70, 60 } });
+  #else
+  text_layer = text_layer_create((GRect) {.origin = {(bounds.size.w-ACTION_BAR_WIDTH)/2-35, (bounds.size.h/2-55)}, .size = { 70, 60 } });
+  #endif
   text_layer_set_text(text_layer, "Select a Weight");
   text_layer_set_text_alignment(text_layer, GTextAlignmentCenter);
   text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
   layer_add_child(window_layer, text_layer_get_layer(text_layer));
   
-  ftoa(weight_buff, weight, 2);
+  temp = weight;
+  ftoa(weight_buff, weight, 3);
   if (unit_system == 1 && temp % 5 == 0) {
     strcat(weight_buff,".0");
   }
-  weight_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-40, bounds.size.h/2-17}, .size = { 80, 28 } });
+  
+  #if defined(PBL_PLATFORM_CHALK)
+  weight_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-40, bounds.size.h/2-16}, .size = { 80, 28 } });
+  #else
+  weight_layer = text_layer_create((GRect) {.origin = {(bounds.size.w-ACTION_BAR_WIDTH)/2-40, bounds.size.h/2-16}, .size = { 80, 28 } });
+  #endif
+  
   text_layer_set_text_alignment(weight_layer, GTextAlignmentCenter);
   text_layer_set_text(weight_layer, weight_buff);
   text_layer_set_font(weight_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));
   layer_add_child(window_layer, text_layer_get_layer(weight_layer));
   
   // Create unit system text layer
-  text_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-35, bounds.size.h/2 + 15}, .size = { 70, 60 } });
+  #if defined(PBL_PLATFORM_CHALK)
+  text_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-35, (bounds.size.h/2 + 15)}, .size = { 70, 30 } });
+  #else
+  text_layer = text_layer_create((GRect) {.origin = {(bounds.size.w-ACTION_BAR_WIDTH)/2-35, (bounds.size.h/2 + 15)}, .size = { 70, 30 } });
+  #endif
+  
   if (unit_system == 0)
   {
     text_layer_set_text(text_layer, "Pounds");
@@ -361,7 +377,13 @@ static void window_load(Window* window)
   layer_add_child(window_layer, text_layer_get_layer(text_layer));
   
   // Create the time text layer up top
+  // Create unit system text layer
+  #if defined(PBL_PLATFORM_CHALK)
   time_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-30, bounds.origin.y+5}, .size = { 60, 15 } });
+  #else
+  time_layer = text_layer_create((GRect) {.origin = {(bounds.size.w-ACTION_BAR_WIDTH)/2-30, bounds.origin.y+5}, .size = { 60, 15 } });
+  #endif
+  
   text_layer_set_font(time_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14));
   text_layer_set_text_alignment(time_layer, GTextAlignmentCenter);
   layer_add_child(window_layer, text_layer_get_layer(time_layer));
@@ -437,6 +459,7 @@ void deinit(void)
 
 int main(void)
 {
+  //light_enable(true);
   load_settings();
   calc_max_weight();
 

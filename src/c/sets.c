@@ -13,7 +13,7 @@ static TextLayer *s_list_message_layer2;
 static TextLayer *s_time_layer;
 
 static int baseSet[2] = {2, 5};
-char plates[16][25];
+char plates[17][25];
 double set_percentages[15];
 double weights[15+2];
 int plate_numbers_copied[8] = {0, 0, 0, 0, 0, 0, 0, 0};
@@ -73,7 +73,6 @@ static void draw_row_callback(GContext *ctx, const Layer *cell_layer, MenuIndex 
   
   if (cell_index->row == 0)
   {
-    
     ftoa(buff1, baseSet[0], 0);
     ftoa(buff2, baseSet[1], 0);
     ftoa(buff3, weights[cell_index->row], 2);
@@ -109,8 +108,6 @@ static int16_t get_cell_height_callback(struct MenuLayer *menu_layer, MenuIndex 
 
 void calculate_percentages(void)
 {
-  //float percentage = ;
-  
   for (int i = 0; i < sets; i++)
   {
     set_percentages[i] = (i+1)*(100/(sets+1));
@@ -267,7 +264,7 @@ void calculate_barbell_math(double d_weight, int i) {
 }
 
 void do_stuff(void) {
-  for (int i = 0; i < 16; i++)
+  for (int i = 0; i < sets + 2; i++)
   {
     calculate_barbell_math(weights[i], i);
   }

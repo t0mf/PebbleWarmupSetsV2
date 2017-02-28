@@ -7,7 +7,7 @@
         "capabilities": [
             "configurable"
         ],
-        "displayName": "Warmup Sets v2",
+        "displayName": "Warmup Sets 2",
         "enableMultiJS": true,
         "messageKeys": {
             "barWeight": 2000,
@@ -125,5 +125,5 @@
             "watchface": false
         }
     },
-    "version": "1.0.0"
+    "version": "1.1.0"
 }

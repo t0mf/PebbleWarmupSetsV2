@@ -5,7 +5,7 @@
 #include "sets.h"
 
 TextLayer *time_layer;
-TextLayer *text_layer;
+TextLayer *num_text_layer;
 TextLayer *sets_layer;
 
 static GBitmap *res_up_arrow;
@@ -14,7 +14,7 @@ static GBitmap *res_check_mark;
 
 static ActionBarLayer *action_bar_layer;
 
-static int max_sets = 14;
+static int max_sets = 15;
 static int min_sets = 0;
 
 char num_sets_buff[10];
@@ -85,21 +85,36 @@ static void window_load(Window* window)
   
   
   // Create "Select a Weight" text layer
-  text_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-45, bounds.origin.y+23}, .size = { 90, 60 } });
-  text_layer_set_text(text_layer, "Number of Warmup Sets");
-  text_layer_set_text_alignment(text_layer, GTextAlignmentCenter);
-  text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
-  layer_add_child(window_layer, text_layer_get_layer(text_layer));
+  #if defined(PBL_PLATFORM_CHALK)
+  num_text_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-35, bounds.size.h/2-55}, .size = { 70, 60 } });
+  #else
+  num_text_layer = text_layer_create((GRect) {.origin = {(bounds.size.w-ACTION_BAR_WIDTH)/2-35, bounds.size.h/2-55}, .size = { 70, 60 } });
+  #endif
+  
+  text_layer_set_text(num_text_layer, "Number of Warmup Sets");
+  text_layer_set_text_alignment(num_text_layer, GTextAlignmentCenter);
+  text_layer_set_font(num_text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD));
+  layer_add_child(window_layer, text_layer_get_layer(num_text_layer));
   
   ftoa(num_sets_buff, sets, 2);
-  sets_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-40, bounds.size.h/2-17}, .size = { 80, 28 } });
+  
+  #if defined(PBL_PLATFORM_CHALK)
+  sets_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-40, bounds.size.h/2-16}, .size = { 80, 28 } });
+  #else
+  sets_layer = text_layer_create((GRect) {.origin = {(bounds.size.w-ACTION_BAR_WIDTH)/2-40, bounds.size.h/2-16}, .size = { 80, 28 } });
+  #endif
+  
   text_layer_set_text_alignment(sets_layer, GTextAlignmentCenter);
   text_layer_set_text(sets_layer, num_sets_buff);
   text_layer_set_font(sets_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));
   layer_add_child(window_layer, text_layer_get_layer(sets_layer));
   
   // Create the time text layer up top
+  #if defined(PBL_PLATFORM_CHALK)
   time_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-30, bounds.origin.y+5}, .size = { 60, 15 } });
+  #else
+  time_layer = text_layer_create((GRect) {.origin = {(bounds.size.w-ACTION_BAR_WIDTH)/2-30, bounds.origin.y+5}, .size = { 60, 15 } });
+  #endif
   text_layer_set_font(time_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14));
   text_layer_set_text_alignment(time_layer, GTextAlignmentCenter);
   layer_add_child(window_layer, text_layer_get_layer(time_layer));
