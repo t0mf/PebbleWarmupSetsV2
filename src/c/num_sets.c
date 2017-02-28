@@ -86,9 +86,9 @@ static void window_load(Window* window)
   
   // Create "Select a Weight" text layer
   #if defined(PBL_PLATFORM_CHALK)
-  num_text_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-35, bounds.size.h/2-55}, .size = { 70, 60 } });
+  num_text_layer = text_layer_create((GRect) {.origin = {bounds.size.w/2-45, bounds.size.h/2-55}, .size = { 90, 80 } });
   #else
-  num_text_layer = text_layer_create((GRect) {.origin = {(bounds.size.w-ACTION_BAR_WIDTH)/2-35, bounds.size.h/2-55}, .size = { 70, 60 } });
+  num_text_layer = text_layer_create((GRect) {.origin = {(bounds.size.w-ACTION_BAR_WIDTH)/2-45, bounds.size.h/2-55}, .size = { 90, 80 } });
   #endif
   
   text_layer_set_text(num_text_layer, "Number of Warmup Sets");
