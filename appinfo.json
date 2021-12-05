@@ -125,16 +125,16 @@
                 "type": "bitmap"
             }
         ]
-    },
+    },index
     "sdkVersion": "3",
     "shortName": "Warmup Sets",
-    "targetPlatforms": [
+    "targetPlatforms": [index
         "aplite",
         "basalt",
         "chalk"
     ],
     "uuid": "652a77c0-44a0-4eeb-846b-3bb95008a646",
-    "versionLabel": "2.0",
+    "versionLabel": "1.3",
     "watchapp": {
         "watchface": false
     }
