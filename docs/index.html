@@ -153,23 +153,23 @@
 		window.onload = function() {
 			if (localStorage.unitSystem == 0)
     		{
-      			document.getElementById('lbs').style.display = "";
+      			document.getElementById('lbs').style.display = "block";
       			document.getElementById('kgs').style.display = "none";
     		}
     		else if (localStorage.unitSystem == 1)
     		{
       			document.getElementById('lbs').style.display = "none";
-      			document.getElementById('kgs').style.display = "";
+      			document.getElementById('kgs').style.display = "block";
     		}
 		}
 
 		document.getElementById('unit-tab-lbs').onclick = function() {
-			document.getElementById('lbs').style.display = "";
+			document.getElementById('lbs').style.display = "block";
 			document.getElementById('kgs').style.display = "none";
 		}
 		document.getElementById('unit-tab-kgs').onclick = function() {
 			document.getElementById('lbs').style.display = "none";
-			document.getElementById('kgs').style.display = "";
+			document.getElementById('kgs').style.display = "block";
 		}
 	</script>
 	<script src='bower_components/Slate/dist/js/slate.min.js'></script>
