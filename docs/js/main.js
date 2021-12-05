@@ -40,13 +40,13 @@ function loadOptions() {
     $unit[1-localStorage.unitSystem].className = "tab-button";
     if (localStorage.unitSystem == 0)
     {
-      $lbs.style.display = "";
+      $lbs.style.display = "block";
       $kgs.style.display = "none";
     }
     else if (localStorage.unitSystem == 1)
     {
       $lbs.style.display = "none";
-      $kgs.style.display = "";
+      $kgs.style.display = "block";
     }
     $barbellWeight[0].value = localStorage.barWeight;
     $weight100lbs[0].value = localStorage.w100p;
