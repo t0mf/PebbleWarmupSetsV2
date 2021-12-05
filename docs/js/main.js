@@ -35,7 +35,7 @@ function loadOptions() {
   var $weight2point5kgs = $('#weight-2point5-kgs');
   var $weight1point25kgs = $('#weight-1point25-kgs');
 
-  if (localStorage.unitSystem) {
+  if (localStorage.unitSystem != NaN) {
     $unit[localStorage.unitSystem].className = "tab-button active";
     $unit[1-localStorage.unitSystem].className = "tab-button";
     if (localStorage.unitSystem == 0)
