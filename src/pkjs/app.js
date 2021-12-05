@@ -3,7 +3,7 @@ Pebble.addEventListener('ready', function() {
 });
 
 Pebble.addEventListener('showConfiguration', function() {
-  var url = 'https://thomasfiveash.com/config-2/';
+  var url = 'https://t0mf.github.io/PebbleWarmupSetsV2';
 
   console.log('Showing configuration page: ' + url);
 
